@@ -10,7 +10,7 @@ jobs:
         # This is Job name
         greet:
           # Job will run on this server given by Github for free
-            runs-on: ubuntu-lastest 
+            runs-on: ubuntu-latest 
             
             steps:
             
