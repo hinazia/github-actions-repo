@@ -6,4 +6,8 @@ on:
 
 jobs:
     checking-trigger: 
-       runs-on: ubuntu:latest
+       runs-on: ubuntu-latest
+       steps:
+        - name: Test Rerun
+          run: echo "Testing after runs-on fix on branch ${{ github.head_ref }}"
+      
