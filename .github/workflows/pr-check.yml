@@ -8,9 +8,6 @@ jobs:
     checking-trigger: 
        runs-on: ubuntu-latest
        steps:
-        - name: Print Branch Name
-          run: echo "PR check running for branch ${{ github.head_ref }}"
-        - name: Print Branch 2 Name
-          run: echo "PR check running for branch 2 ${{ github.head_ref }}"
-        
-          
+        - name: Test Rerun
+          run: echo "Testing after runs-on fix on branch ${{ github.head_ref }}"
+      
