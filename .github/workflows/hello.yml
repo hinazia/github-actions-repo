@@ -2,9 +2,9 @@
 name: Hello
 
 # workflow runs on a trigger
-on:
-  push:
-    branches: [main]
+on: 
+  schedule:
+      - cron: '5 2 * * *'  
       
 jobs:
     greet: # This is Job name
