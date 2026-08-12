@@ -19,4 +19,4 @@ jobs:
                 date
                 ls 
                 lsb_release -a
-                ${{ github.ref_name }}
+                echo "${{ github.ref_name }}"
