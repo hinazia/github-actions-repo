@@ -14,8 +14,8 @@ jobs:
             
             steps:
             
-              - name: Say Hello to users
-                run: echo "Hello Friends"
+              - name: action/checkout
+                uses: actions/checkout@v4
 
-              - name: Say Hello to $USER
-                run: echo "Hello $USER"
+              - name: Actions Greeting
+                run: echo "Hello from GitHub Actions!"
