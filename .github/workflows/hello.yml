@@ -7,15 +7,16 @@ on:
     branches: [main]
       
 jobs:
-        # This is Job name
-        greet:
-          # Job will run on this server given by Github for free
-            runs-on: ubuntu-latest 
-            
-            steps:
-            
-              - name: action/checkout
-                uses: actions/checkout@v4
-
-              - name: Actions Greeting
-                run: echo "Hello from GitHub Actions!"
+    greet: # This is Job name
+        runs-on: ubuntu-latest # Job will run on this server given by Github for free
+        steps:
+            - name: action/checkout
+              uses: actions/checkout@v4
+            - name: Actions Greeting
+              run: echo "Hello from GitHub Actions!"
+            - name: Printing Info
+              run: | 
+                date
+                ls 
+                lsb_release -a
+                ${{ github.ref_name }}
