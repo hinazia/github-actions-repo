@@ -1,0 +1,17 @@
+name: Manual Trigger Workflow
+
+on: 
+    workflow_dispatch:
+    
+jobs:
+    code:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Asking for Input
+              run: > 
+                read -p "Enter the Environment variable" env_var
+                echo env_var
+
+    
+    
+    
