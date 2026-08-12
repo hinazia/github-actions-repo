@@ -10,3 +10,5 @@ jobs:
        steps:
         - name: Print Branch
           run: echo "PR check running for branch ${{ github.head_ref }}"
+        - name: Print Branch again
+          run: echo "PR check running for branch again ${{ github.head_ref }}"
