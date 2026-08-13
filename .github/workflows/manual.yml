@@ -2,15 +2,22 @@ name: Manual Trigger Workflow
 
 on: 
     workflow_dispatch:
+        inputs:
+            environment:
+                description: "Environment to deploy to"
+                required: true
+                type: choice
+                options:
+                    - Production
+                    - Deployment
+
     
 jobs:
     code:
         runs-on: ubuntu-latest
         steps:
-            - name: Asking for Input
-              run: > 
-                read -p "Enter the Environment variable" env_var
-                echo env_var
+            - name: Print the environment field
+              run: echo "Deploying to Environment ${{ github.event.inputs.environment }}"
 
     
     
