@@ -12,11 +12,10 @@ jobs:
             - name: Print Version Info
               if: matrix.os-version == 'ubuntu-latest'
               run: | 
-                python version
+                python --version
                 docker version
                 git version
-                node version
-
+                node --version
 
             - name: Print Windows Info
               if: matrix.os-version == 'windows-latest'
