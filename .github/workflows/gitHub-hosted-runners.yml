@@ -9,12 +9,14 @@ jobs:
                 os-version: ["ubuntu-latest", "windows-latest", "macos-latest"]
         runs-on: ${{ matrix.os-version }}
         steps:
-            - name: Print Ubuntu Info
+            - name: Print Version Info
               if: matrix.os-version == 'ubuntu-latest'
               run: | 
-                lsb_release -a 
-                hostname
-                echo $USER
+                python version
+                docker version
+                git version
+                node version
+
 
             - name: Print Windows Info
               if: matrix.os-version == 'windows-latest'
