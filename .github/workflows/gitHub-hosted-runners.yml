@@ -9,10 +9,23 @@ jobs:
                 os-version: ["ubuntu-latest", "windows-latest", "macos-latest"]
         runs-on: ${{ matrix.os-version }}
         steps:
-            - name: OS name
-              run: lsb_release -a
-            - name: Print Hostname
-              run: hostname
-            - name: Print USER
-              run: echo $USER
+            - name: Print Ubuntu Info
+              if: matrix.os-version == 'ubuntu-latest'
+              run: | 
+                lsb_release -a 
+                hostname
+                echo $USER
 
+            - name: Print Windows Info
+              if: matrix.os-version == 'windows-latest'
+              run: |
+                systeminfo | findstr /B /C:"OS Name"
+                hostname
+                whoami
+
+            - name: Print MacOS Info
+              if: matrix.os-version == 'macos-latest'
+              run: |
+                sw_vers -productName
+                hostname
+                whoami
