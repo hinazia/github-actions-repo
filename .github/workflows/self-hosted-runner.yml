@@ -10,5 +10,6 @@ jobs:
               run: hostname
             - name: Print working directory
               run: pwd
-            - name: create a file
+            - name: Create a file
               run: touch testfile.yml
+              
