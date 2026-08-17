@@ -4,7 +4,7 @@ on: push
 
 jobs:
     code:
-        runs-on: self-hosted
+        runs-on: [self-hosted, my-linux-runner]
         steps:
             - name: Print the OS
               run: hostname
@@ -12,4 +12,3 @@ jobs:
               run: pwd
             - name: Create a file
               run: touch testfile.yml
-              
