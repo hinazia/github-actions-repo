@@ -1,0 +1,14 @@
+name: self hosted runner
+
+on: push
+
+jobs:
+    code:
+        runs-on: self-hosted
+        steps:
+            - name: Print the OS
+              run: hostname
+            - name: Print working directory
+              run: pwd
+            - name: create a file
+              run: touch testfile.yml
