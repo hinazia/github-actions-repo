@@ -17,6 +17,10 @@ jobs:
               if: steps.step_id.outcome == 'success'
               run: echo "Previous Step succeded and this step got executed"
 
+            - name: Force Fail
+              run: exit 1
+              continue-on-error: true
+
             - name : Print Statement
               run: echo "Continue the flow because of the above continue error"
             
