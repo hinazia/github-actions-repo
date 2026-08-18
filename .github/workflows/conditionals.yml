@@ -19,7 +19,7 @@ jobs:
 
             - name: Force Fail
               run: exit 1
-              continue-on-error: true
+              # continue-on-error: true
 
             - name : Print Statement
               run: echo "Continue the flow because of the above continue error"
