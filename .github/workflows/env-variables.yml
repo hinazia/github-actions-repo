@@ -18,3 +18,20 @@ jobs:
                 echo "APP_NAME"
                 echo "${{ github.sha }}"
                 echo "Triggered By: ${{ github.actor }}"
+    
+    set_output:
+        runs-on: self-hosted
+        outputs:  # (at job level) — promotes that step-level output up to the job level, so other jobs can see it.
+            date: ${{ steps.get_data.outputs.date }}
+        steps:
+            - name: Set the Date
+              id: get_data # names that specific step, so it can be referred to.
+              run: echo "date=$(date)" >> $GITHUB_OUTPUT  # actually creates the output at the step level. 
+                                                          # Without this, there's nothing to expose.
+
+    read_output:
+        runs-on: self:hosted
+        needs: set_output
+        steps:
+            - name: Reads the Date
+              run: echo "${{ needs.set_output.outputs.date }}"
