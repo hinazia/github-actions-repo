@@ -10,12 +10,12 @@ jobs:
             - name: Runs on main Branch
               id: step_id
               if: github.ref == 'refs/heads/develop'
-              run: echo "Run Condition is Satisfied"
+              run: echo "Run Condition if is Satisfied"
+              continue-on-error: true
 
             - name: Step Failer
               if: steps.step_id.outcome == 'failed'
-              run: echo "Previous Step succeedd and this step got executed"
-              continue-on-error: true
+              run: echo "Previous Step failed and this step got executed"
 
             - name : Print Statement
               run: echo "Continue the flow because of the above continue error"
