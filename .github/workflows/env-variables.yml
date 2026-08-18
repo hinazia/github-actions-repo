@@ -30,7 +30,7 @@ jobs:
                                                           # Without this, there's nothing to expose.
 
     read_output:
-        runs-on: self:hosted
+        runs-on: self-hosted
         needs: set_output
         steps:
             - name: Reads the Date
