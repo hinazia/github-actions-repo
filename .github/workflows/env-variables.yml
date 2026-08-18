@@ -1,4 +1,4 @@
-name: environment variables
+name: environment variables / Outputs
 on: workflow_dispatch
 env: 
     APP_NAME: myapp
@@ -15,7 +15,7 @@ jobs:
               run: |
                 echo "$VERSION"
                 echo "$ENVIRONMENT"
-                echo "APP_NAME"
+                echo "$APP_NAME"
                 echo "${{ github.sha }}"
                 echo "Triggered By: ${{ github.actor }}"
     
@@ -35,3 +35,5 @@ jobs:
         steps:
             - name: Reads the Date
               run: echo "${{ needs.set_output.outputs.date }}"
+
+    
