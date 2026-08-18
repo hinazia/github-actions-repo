@@ -1,0 +1,22 @@
+name: Conditional Basics
+
+on: push
+
+jobs: 
+    testing:
+        if: github.event_name == 'push'
+        runs-on: self-hosted
+        steps:
+            - name: Runs on main Branch
+              id: step_id
+              if: github.ref == 'refs/heads/main'
+              run: echo "Run Condition is Satisfied"
+
+            - name: Step Failer
+              if: steps.step_id.outcome == 'failed'
+              run: echo "Previous Step failed and this step got executed"
+              continue-on-error: true
+
+            - name : Print Statement
+              run: echo "Continue the flow because of the above continue error"
+            
