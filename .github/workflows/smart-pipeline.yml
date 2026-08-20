@@ -7,9 +7,15 @@ on:
 jobs:
     lint:
         runs-on: ubuntu-latest
+        steps:
+            - name: Print
+              run: echo "Lint Job"
         
     test:
         runs-on: ubuntu-latest
+        steps:
+            - name: Print job
+              run: echo "Test Job"
     
     summary:
         needs: 
