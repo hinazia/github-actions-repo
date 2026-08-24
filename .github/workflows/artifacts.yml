@@ -1,0 +1,13 @@
+name: Github Artifacts
+
+on: workflow_dispatch
+
+jobs:
+    artifacts:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Generate a log file
+              run: echo "Test run completed at $(date)" > report.log
+
+            - name: Build artifact
+              uses: actions/upload-artifact@v6
