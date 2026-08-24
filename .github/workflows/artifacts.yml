@@ -9,5 +9,7 @@ jobs:
             - name: Generate a log file
               run: echo "Test run completed at $(date)" > report.log
 
-            - name: Build artifact
-              uses: actions/upload-artifact@v6
+            - uses: actions/upload-artifact@v6
+              with:
+                name: my-artifact
+                path: report.log
