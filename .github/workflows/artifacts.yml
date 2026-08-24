@@ -22,7 +22,7 @@ jobs:
             - uses: actions/download-artifact@v6
               with:
                   name: my-artifact
-                  path: report.log
+                  path: ./downloads
 
             - name: Print The file contents
-              run: cat report.log
+              run: cat ./downloads/report.log
