@@ -22,7 +22,8 @@ jobs:
             - uses: actions/download-artifact@v6
               with:
                   name: my-artifact
-                  path: ./downloads
+                  # path: ./downloads
 
             - name: Print The file contents
-              run: cat ./downloads/report.log
+              # run: cat ./downloads/report.log
+              run: cat report.log
