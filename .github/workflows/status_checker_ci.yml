@@ -15,4 +15,4 @@ jobs:
                 python-version: 3.14
 
             - name: Run the Python Script
-              run: python \.github\status_checker.py
+              run: python .github/status_checker.py
