@@ -11,7 +11,7 @@ jobs:
 
             - uses: actions/upload-artifact@v6
               with:
-                name: update-artifact
+                name: my-artifact
                 path: report.log
     
 
@@ -21,4 +21,8 @@ jobs:
         steps:
             - uses: actions/download-artifact@v6
               with:
-                run: cat report.log
+                  name: my-artifact
+                  path: report.log
+
+            - name: Print The file contents
+              run: cat report.log
