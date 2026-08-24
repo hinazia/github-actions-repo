@@ -3,7 +3,7 @@ name: Github Artifacts
 on: workflow_dispatch
 
 jobs:
-    artifacts:
+    upload-artifacts:
         runs-on: ubuntu-latest
         steps:
             - name: Generate a log file
@@ -11,5 +11,14 @@ jobs:
 
             - uses: actions/upload-artifact@v6
               with:
-                name: my-artifact
+                name: update-artifact
                 path: report.log
+    
+
+    download-artifacts:
+        runs-on: ubuntu-latest
+        needs: upload-artifacts
+        steps:
+            - uses: actions/download-artifact@v6
+              with:
+                run: cat report.log
