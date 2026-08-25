@@ -17,5 +17,4 @@ jobs:
             - name: Run the Python App Script
               run: python .github/status_checker.py
 
-            - name: Run the index file
-              run: python -m http.server 8000 &
+           
