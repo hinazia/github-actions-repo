@@ -14,5 +14,5 @@ jobs:
               with:
                 python-version: 3.14
 
-            - name: Run the Python Script
+            - name: Run the Python App Script
               run: python .github/status_checker.py
