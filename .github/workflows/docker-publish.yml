@@ -28,8 +28,7 @@ jobs:
               uses: docker/build-push-action@v7
               with:
                 context: .
-                if: github.ref == '/refs/heads/main'
-                push: true
+                push: $ {{ github.ref == '/refs/heads/main' }}
                 tags: |
                     ${{ vars.DOCKER_USERNAME }}/repo:latest
                     ${{ vars.DOCKER_USERNAME }}/repo:${{ github.sha }}
