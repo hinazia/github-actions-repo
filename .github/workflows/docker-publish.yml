@@ -28,4 +28,6 @@ jobs:
               with:
                 context: .
                 push: true
-                tags: ${{ vars.DOCKER_USERNAME }}/github-actions-app:latest
+                tags: |
+                    ${{ vars.DOCKER_USERNAME }}/repo:latest
+                    ${{ vars.DOCKER_USERNAME }}/repo:${{ github.sha }}
