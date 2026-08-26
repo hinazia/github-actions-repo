@@ -1,9 +1,7 @@
 name: Publish Docker File
 
 on: workflow_dispatch
-            # push:
-            #     branches: [main]
-
+        
 jobs:
     build:
         runs-on: self-hosted
@@ -25,7 +23,7 @@ jobs:
               with:
                 driver: docker-container
 
-            - name: Build and push Docker Image
+            - name: Build and push Docker Image on Main Branch Only
               
               uses: docker/build-push-action@v7
               with:
