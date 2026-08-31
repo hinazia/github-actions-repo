@@ -23,4 +23,4 @@ jobs:
               # run: echo "$GITHUb_HEAD_REF" --> # Env variable direct use
 
             - name: Print Commit Message
-              run: echo "${{ github.event.commits[0].message }}"
+              run: echo "${{ github.event.head_commit.message }}"
