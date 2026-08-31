@@ -15,14 +15,14 @@ on:
                 required: true
 
 jobs:
-    build:
+    code:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout Code
               uses: actions/checkout@v6
 
             - name: Prints Building <app_name> for <environment>
-              run: echo "Building ${{ github.event.inputs.app-name}} for ${{ github.event.inputs.environment}}"
+              run: echo "Building ${{ inputs.app-name}} for ${{ inputs.environment}}"
 
             - name: Prints Docker Token
-              run: echo "Docker token is set - ${{ github.event.secrets.docker_token }}"
+              run: echo "Docker token is set - ${{ secrets.docker_token }}"
