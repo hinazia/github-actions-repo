@@ -13,6 +13,11 @@ on:
         secrets:
             docker_token:
                 required: true
+        outputs:
+            build_ver:
+                description: "The Version Variable output"
+                value: ${{ jobs.set_outputs.outputs.version }}
+        
 
 jobs:
     code:
@@ -26,3 +31,15 @@ jobs:
 
             - name: Prints Docker Token
               run: echo "Docker token is set - ${{ secrets.docker_token }}"
+
+    
+    set_outputs:
+        runs-on: ubuntu-latest
+        outputs: 
+            version: ${{ steps.ver-id.outputs.ver }}
+        steps:
+            - name: Build Version
+              id: ver-id
+              run: |
+                sha=${GITHUB_SHA:0:7}
+                echo "ver=v1.0@$sha" >> "$GITHUB_OUTPUT"
