@@ -1,0 +1,34 @@
+name: Advanced Pr Checks
+
+on:
+    pull_request:
+        branches: [main]
+
+jobs:
+
+    file-size-check:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checksout
+              uses: actions/chcekout@v6
+            
+            - uses: freenet-actions/check-file-size@v2 
+              with:
+                max_size: 1000
+                post_comment: false
+
+    branch-name-check:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Fail for wring Pattern
+              if: startsWith(github.head_ref, 'feature/*') || startsWith(github.head_ref, 'fix/*') || startsWith(github.head_ref, 'docs/*')
+              run: exit 1 
+
+    pr-body-check:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Reads the body and warn if empty
+              if: github.event.pull_request.body.description == ''
+              run: echo "::warning title=PR_Description::Missing Description is missing"
+
+    
