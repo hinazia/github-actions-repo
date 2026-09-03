@@ -1,0 +1,29 @@
+name: 'Greetings Action'
+description: "Greet In a local Languague"
+inputs:
+  name:
+    required: true
+  language:
+    default: en
+outputs:
+  greeted:
+    description: "An Output Result"
+    value: ${{ steps.out-id.outputs.greeted }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Print Greeting
+      run: echo "Hello in Languauge ${{ inputs.language }}"
+      shell: bash
+      
+    - name: Print OS Version
+      run: | 
+        date
+        lsb_release -a
+      shell: bash
+
+    - name: Print outputs
+      id: out-id
+      run: echo "greeted=true" >> "$GITHUB_OUTPUT" 
+      shell: bash
