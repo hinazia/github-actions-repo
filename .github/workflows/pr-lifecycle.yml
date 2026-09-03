@@ -9,7 +9,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout Code
-              uses: actions/chcekout@v6
+              uses: actions/checkout@v6
 
             - name: Print which event type fired
               run: echo "${{ github.event.action }}"
@@ -24,6 +24,9 @@ jobs:
               run: |
                 echo "${{ github.head_ref }}"
                 echo "${{ github.ref}}"
+
+            - name: Testing the PR
+              run: echo "Testing workflow"
 
             - name: Only Runs when the PR is merged
               if: github.event.pull_request.merged == true
