@@ -27,6 +27,8 @@ jobs:
 
             - name: Testing the PR
               run: echo "Testing workflow"
+            - name: Testing The PR triggers
+              run: echo "Testing Step 2"
 
             - name: Only Runs when the PR is merged
               if: github.event.pull_request.merged == true
