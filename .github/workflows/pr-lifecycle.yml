@@ -25,6 +25,9 @@ jobs:
                 echo "${{ github.head_ref }}"
                 echo "${{ github.ref}}"
 
+            - name: Testing The PR triggers
+              run: echo "Testing Step 2"
+
             - name: Only Runs when the PR is merged
               if: github.event.pull_request.merged == true
               run: echo "Merge Trigger Successful"
