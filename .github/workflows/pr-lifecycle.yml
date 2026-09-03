@@ -1,0 +1,30 @@
+name: Pull Request Event Types
+
+on:
+    pull_request:
+        types: [opened, synchronize, reopened, closed]
+
+jobs:
+    testing:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Code
+              uses: actions/chcekout@v6
+
+            - name: Print which event type fired
+              run: echo "${{ github.event.action }}"
+
+            - name: Print the PR title
+              run: echo "${{ github.event.pull_request.title }}"
+
+            - name: Print the PR author
+              run: echo "${{ github.event.pull_request.user.login }}"
+
+            - name: Print the Source and target branch
+              run: |
+                echo "${{ github.head_ref }}"
+                echo "${{ github.ref}}"
+
+            - name: Only Runs when the PR is merged
+              if: github.event.pull_request.merged == true
+              run: echo "Merge Trigger Successful"
