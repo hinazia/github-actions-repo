@@ -9,7 +9,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout Code
-              uses: actions/chcekout@v6
+              uses: actions/checkout@v6
 
             - name: Print which event type fired
               run: echo "${{ github.event.action }}"
@@ -25,6 +25,8 @@ jobs:
                 echo "${{ github.head_ref }}"
                 echo "${{ github.ref}}"
 
+            - name: Testing the PR
+              run: echo "Testing workflow"
             - name: Testing The PR triggers
               run: echo "Testing Step 2"
 
