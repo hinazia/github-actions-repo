@@ -1,0 +1,16 @@
+name: Advanced Smart Triggers
+
+on: 
+    push:
+        paths:
+            - 'scr/**'
+            - 'app/**'
+        branches:
+            [main, realease/]
+
+jobs:
+    code:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Testing
+              run: echo "Testing"

@@ -1,0 +1,17 @@
+name: Smart Triggers 2
+
+on:
+    push:
+        paths-ignore:
+              - '*.md'
+              - 'docs/**'
+        branches:
+            [main, realease/]
+
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Testing
+              run: echo "Testing"
