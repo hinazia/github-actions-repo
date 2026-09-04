@@ -9,5 +9,4 @@ jobs:
             - name: Run Basic Linux Comamnds
               run: |
                 hostname
-                htop
-                free -h
+               

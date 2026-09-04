@@ -11,12 +11,12 @@ jobs:
         steps:
             - name: Handle Result
               run: |
-                if ["${{ github.event.workflow_run.conclusion}}" = "success"]; then
+                if [ "${{ github.event.workflow_run.conclusion}}" = "success" ]; then
                     echo "Deployed"
-                elif ["${{ github.event.workflow_run.conclusion}}" = "failure"]; then
+                elif [ "${{ github.event.workflow_run.conclusion}}" = "failure" ]; then
                     echo "::warning title=Test Workflow::Missing Worflow failed"
                     exit 1
-                 else
+                else
                      echo "unknown state"
                 fi
 
