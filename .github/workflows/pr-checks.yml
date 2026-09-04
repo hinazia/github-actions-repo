@@ -20,8 +20,8 @@ jobs:
     branch-name-check:
         runs-on: ubuntu-latest
         steps:
-            - name: Fail for wring Pattern
-              if: startsWith(github.head_ref, 'feature/*') || startsWith(github.head_ref, 'fix/*') || startsWith(github.head_ref, 'docs/*')
+            - name: Fail for wrong Pattern
+              if: ${{ !(startsWith(github.head_ref, 'feature/') || startsWith(github.head_ref, 'fix/') || startsWith(github.head_ref, 'docs/')) }}
               run: exit 1 
 
     pr-body-check:
