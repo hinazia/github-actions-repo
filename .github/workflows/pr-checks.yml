@@ -10,7 +10,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checksout
-              uses: actions/chcekout@v6
+              uses: actions/checkout@v6
             
             - uses: freenet-actions/check-file-size@v2 
               with:
