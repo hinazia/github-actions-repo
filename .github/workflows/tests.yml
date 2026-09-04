@@ -1,0 +1,13 @@
+name: Tests Workflow
+
+on: push
+
+jobs:
+    testing:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Run Basic Linux Comamnds
+              run: |
+                hostname
+                htop
+                free -h

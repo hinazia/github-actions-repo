@@ -1,0 +1,23 @@
+name: Deploy After the Tests Workflow
+
+on: 
+    workflow_run:
+        workflows: ["Run Tests"]
+        types: [completed]
+
+jobs:
+    building:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Handle Result
+              run: |
+                if ["${{ github.event.workflow_run.conclusion}}" = "success"]; then
+                    echo "Deployed"
+                elif ["${{ github.event.workflow_run.conclusion}}" = "failure"]; then
+                    echo "::warning title=Test Workflow::Missing Worflow failed"
+                    exit 1
+                 else
+                     echo "unknown state"
+                fi
+
+         
