@@ -1,0 +1,17 @@
+name: Scheduled Tasks using Cron
+
+on: 
+    workflow_dispatch:
+    schedule:
+       - cron: '30 2 * * 1'
+       - cron: '0 */6 * * *'
+
+jobs:
+    testing-cron:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print the Scheduled Trigger
+              run: echo "${{ github.event.schedule }}"
+
+            - name: Health check
+              run: curl -I https://www.example.com
